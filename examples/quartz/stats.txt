@@ -1,0 +1,5 @@
+duration 100.7 s
+shots 34, average 2.96 s, longest 14.83 s
+first cut 0.50 s, cuts in the first 3 s: 3
+words 216, 2.2 words/s while speaking
+first word at 0.00 s, words in the first 3 s: 5
