@@ -19,14 +19,31 @@ For each video, a study folder with:
 
 See [examples/quartz/BREAKDOWN.md](examples/quartz/BREAKDOWN.md) for a real one.
 
-## Install
-You need [Claude Code](https://claude.com/claude-code) and [uv](https://docs.astral.sh/uv/). uv fetches everything else
-on the fly, ffmpeg and Whisper included.
+## What you need
+- **[Claude Code](https://claude.com/claude-code)**, to run the skill.
+- **[uv](https://docs.astral.sh/uv/)**, a free installer. One line in the Terminal:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+  uv fetches everything else by itself the first time you run a teardown: ffmpeg to read the video,
+  Whisper for the transcript, yt-dlp to download links. There's nothing else to install.
 
+You don't need Remotion, After Effects or any editing app. The skill reads any video file, whatever made it.
+
+**Getting the video**
+- **YouTube, TikTok and most sites:** paste the link. Claude downloads it.
+- **Instagram:** paste the link and try. If Instagram asks for a login, save the reel yourself: screen-record it on your phone
+  (iPhone: Control Centre → Screen Recording; Android: Quick Settings → Screen record), trim it, AirDrop or send it to your computer,
+  and give Claude the file. For your own reels, the original files are in Instagram → Settings → Accounts Center → Your information and permissions → Download your information.
+
+## Install
 ```bash
 git clone https://github.com/krlaribi/reel-teardown
 cp -r reel-teardown/skills/reel-teardown ~/.claude/skills/
 ```
+Never used git? Click the green **Code** button on this page → **Download ZIP**, unzip it, and copy the
+`skills/reel-teardown` folder into `.claude/skills/` in your home folder (create it if it isn't there).
+Or ask Claude Code: *"Install the skill from github.com/krlaribi/reel-teardown."*
 
 ## Use
 In Claude Code:
@@ -37,7 +54,7 @@ In Claude Code:
 
 > Compare my reel out/v3.mp4 with this one and tell me the three biggest differences.
 
-Links are downloaded with yt-dlp. If a platform needs a login (Instagram often does), save the video yourself and give Claude the file.
+If a link won't download, see [Getting the video](#what-you-need) above.
 
 Prefer no Claude? The measuring script runs on its own:
 ```bash
